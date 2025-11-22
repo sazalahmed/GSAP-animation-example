@@ -1289,18 +1289,48 @@ button {
 }
 
 /* pricing end */
-
 /* ===================================
     Home page end
 =================================== */
 
-.cursor_design {
-    width: 60px;
-    height: 60px;
-    background: var(--colorPrimary);
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+
+
+
+
+
+
+
+.test_slider {
+    display: flex;
+    overflow: hidden;
+}
+
+.test_slider #page_1 {
+    width: 100% !important;
+    height: 100%;
+    background-color: #eee;
+}
+
+.test_slider #page_2 {
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+}
+
+.test_slider #page_3 {
+    width: 100%;
+    height: 100%;
+    background-color: #cdccdcdc;
+}
+
+.test_slider #page_4 {
+    width: 100%;
+    height: 100%;
+    background-color: #c5c5d1;
+}
+
+.test_slider h1 {
+    font-weight: 500;
+    font-size: 40vw;
+    padding: 50px 0px;
 }

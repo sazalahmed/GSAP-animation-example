@@ -1,3 +1,25 @@
+// ============= Scroll Smoother =================//
+// all content should be the id (id="smooth-content")
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+ScrollSmoother.create({
+    smooth: 2,
+    effects: true,
+    smoothTouch: 0.1,
+});
+
+
+
+
+
+
+
+
+
+const timeline = gsap.timeline()
+
+
+
+
 // ============= banner aimation =================//
 gsap.from(".main_menu .navbar-nav li", {
     y: 100,
@@ -17,6 +39,9 @@ gsap.from(".wsus__banner_text h5", {
 gsap.from(".wsus__banner_text h1", {
     y: 200,
     duration: 1,
+    duration: 2.5,
+    ease: "bounce.out",
+    // y: -500
 });
 
 gsap.from(".wsus__banner_text p", {
@@ -76,14 +101,13 @@ gsap.to(".circle_box svg", {
 gsap.from(".wsus__section_heading h5", {
     opacity: 0,
     y: 50,
-    // rotate: 90,
     duration: 1,
     scrollTrigger: {
         trigger: ".wsus__section_heading h5",
         scroller: "body",
-        start: "100",
-        end: "250",
-        scrub: true,
+        start: "200",
+        end: "350",
+        // scrub: true,
         // markers: true,
     }
 });
@@ -95,14 +119,12 @@ gsap.from(".wsus__section_heading h2", {
     scrollTrigger: {
         trigger: ".wsus__section_heading h2",
         scroller: "body",
-        start: "200",
-        end: "350",
-        scrub: true,
+        start: "300",
+        end: "550",
+        // scrub: true,
         // markers: true,
     }
 });
-
-const timeline = gsap.timeline()
 
 timeline.from(".wsus__ai_section .col-xl-4", {
     opacity: 0,
@@ -115,7 +137,22 @@ timeline.from(".wsus__ai_section .col-xl-4", {
         start: "200",
         end: "1200",
         scrub: true,
-        markers: true,
+        // markers: true,
     }
 });
+
+// gsap.to("#page_2 h1", {
+//     transform: "translateX(-150%)",
+//     scrollTrigger: {
+//         trigger: "#page_2",
+//         scroller: "body",
+//         markers: true,
+//         start: "top 0%",
+//         end: "top -100%",
+//         scrub: 2,
+//         pin: true,
+//     }
+// });
+
+
 
