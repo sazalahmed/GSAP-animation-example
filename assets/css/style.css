@@ -472,4 +472,56 @@ button {
     border-right: 10px solid var(--colorWhite);
 }
 
-/* horizontal scrolling start */
+/* horizontal scrolling end */
+
+
+
+
+/* 3D image zoom start */
+.zoom_content {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.image_zoom_content_bg {
+    width: 100%;
+    height: 820px;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.zoom_main_img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    perspective: 500px;
+    overflow: hidden;
+}
+
+/* 3D image zoom end */
+
+
+
+
+
+/* single image zoom start */
+.single_zoom_main_img {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.single_zoom_main_img img {
+    width: 1000px !important;
+    height: 450px !important;
+}
+
+/* single image zoom end */
