@@ -475,8 +475,6 @@ button {
 /* horizontal scrolling end */
 
 
-
-
 /* 3D image zoom start */
 .zoom_content {
     position: relative;
@@ -507,9 +505,6 @@ button {
 /* 3D image zoom end */
 
 
-
-
-
 /* single image zoom start */
 .single_zoom_main_img {
     display: flex;
@@ -525,3 +520,45 @@ button {
 }
 
 /* single image zoom end */
+
+
+
+/* horizontal scroll galler start */
+.horizontal_gallery_content,
+.horizontal_gallery_area {
+    display: flex;
+    flex-wrap: nowrap;
+    will-change: transform;
+    position: relative;
+}
+
+.horizontal_gallery_img {
+    width: 33vw;
+    padding: 2rem;
+    box-sizing: content-box;
+}
+
+.horizontal_gallery_img img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+/* horizontal scroll galler end */
+
+
+
+/* vertical scrolling start */
+.vertical_slider_content {
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+/* vertical scrolling end */
