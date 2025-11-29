@@ -401,51 +401,52 @@ button {
 
 /* banne start */
 .wsus__banner {
-    height: 900px;
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
     position: relative;
     z-index: 1;
+    padding: 230px 0px 150px 0px;
 }
 
-.wsus__banner div {
-    height: 100%;
-}
 
 .wsus__banner_text {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding-top: 80px;
     position: relative;
 }
 
 .wsus__banner_text h5 {
-    text-align: center;
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 15px;
 }
 
 .wsus__banner_text h1 {
-    text-align: center;
     position: relative;
     font-size: 68px;
     font-weight: 600;
+    margin-top: 25px;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
 }
 
 .wsus__banner_text p {
     max-width: 70%;
-    text-align: center;
     margin-top: 30px;
 }
 
 .wsus__banner_text .common_btn {
     margin-top: 20px;
 }
+
+.wsus__banner_img .img {
+    height: 550px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+
 
 /* banne end */
 
@@ -534,7 +535,7 @@ button {
 
 .horizontal_gallery_img {
     width: 33vw;
-    padding: 2rem;
+    padding: 0px 10px;
     box-sizing: content-box;
 }
 
@@ -549,6 +550,13 @@ button {
 
 
 /* vertical scrolling start */
+.vertical_scroll_slider {
+    overflow: hidden;
+}
+
+
+.vertical_slider_item {}
+
 .vertical_slider_content {
     height: 650px;
     display: flex;

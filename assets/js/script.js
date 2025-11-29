@@ -35,13 +35,120 @@ $(function () {
 
 
     //========== GSAP code here ==========
-    document.addEventListener("DOMContentLoaded", (event) => {
-        gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+    document.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText)
+    });
+
+    const timeline = gsap.timeline();
+
+
+    const smoother = ScrollSmoother.create({
+        smooth: 2,
+        effects: true
+    });
+
+    // menu animation
+    gsap.from(".main_menu .navbar-nav .nav-item", {
+        y: -100,
+        opacity: 0,
+        stagger: 0.2,
     });
 
 
+
+    // banner text animation 01
+    const splitHeadline = new SplitText(".main_heading", { type: "chars" });
+    const splitTagline = new SplitText(".tagline", { type: "words" });
+
+    timeline.from(".sub_heading", {
+        x: -150,
+        opacity: 0,
+        duration: 1.5,
+        ease: "bounce.out",
+    }).to(".sub_heading", {
+        x: 0,
+        opacity: 1,
+    })
+
+    timeline.from(splitHeadline.chars, {
+        y: 100,
+        rotationX: 90,
+        opacity: 0,
+        stagger: 0.03,
+        transformOrigin: "center top",
+        // perspective: 400,
+        ease: "power2.out",
+        duration: 0.4,
+    }, 1).to(splitHeadline.chars, {
+        color: "#704eeb",
+    });
+
+    timeline.from(splitTagline.words, {
+        y: 60,
+        opacity: 0,
+        filter: "blur(16px)",
+        stagger: 0.12,
+        duration: 0.3,
+        ease: "power3.out",
+    }, 2.5).to(splitTagline.words, {
+        filter: "blur(0px)",
+    });
+
+    timeline.from(".wsus__banner_text .common_btn", {
+        y: 100,
+        opacity: 0,
+    }).to(".wsus__banner_text .common_btn", {
+        y: 0,
+        opacity: 1,
+    })
+
+
+    timeline.from(".wsus__banner_img", {
+        // x: 300,
+        scale: .3,
+        // rotation: 360,
+        skewY: '45deg',
+        transformOrigin: "center top",
+        opacity: 0,
+        ease: "bounce.out",
+        duration: 2,
+    }, 2).to(".wsus__banner_img", {
+        // x: 0,
+        scale: 1,
+        // rotation: 0,
+        skewY: '0deg',
+        opacity: 1,
+    });
+
+
+    // banner text animation 02
+    // const splitHeadline = SplitText.create(".main_heading", { type: "chars" });
+    // const splitTagline = SplitText.create(".tagline", { type: "words" });
+
+    // timeline.from(splitHeadline.chars, {
+    //     y: 20,
+    //     autoAlpha: 0,
+    //     stagger: 0.05,
+    //     duration: 0.7,
+    //     filter: "blur(2px)",
+    //     ease: "power3.out",
+
+    // });
+
+    // timeline.from(splitTagline.words, {
+    //     y: 60,
+    //     opacity: 0,
+    //     filter: "blur(16px)",
+    //     stagger: 0.12,
+    //     duration: 0.7,
+    //     ease: "power3.out",
+    // }).to(splitTagline.words, {
+    //     filter: "blur(0px)",
+    // })
+
+
+
     // smooth scrolling
-    // window স্মুথ স্ক্রলিং এর জন্য সমস্ত কন্টেন্ট আইডির ভিতরে  রাখতে হবে  (id="smooth-content")
     ScrollSmoother.create({
         smooth: 2,
         effects: true,
@@ -159,8 +266,8 @@ $(function () {
             ease: "none",
             scrollTrigger: {
                 trigger: wrapper,
-                start: "top " + (100 + 50 * i),
-                end: "bottom 0",
+                start: "top 0" + (100 + 50 * i),
+                end: "bottom 100",
                 endTrigger: ".vertical_scroll_slider",
                 scrub: true,
                 pin: wrapper,
