@@ -290,7 +290,7 @@ $(function () {
         opacity: 0,
         transformOrigin: "top left",
         ease: "none",
-    }).to(scrollImage, {
+    }, 0).to(scrollImage, {
         scaleX: 1,
         opacity: 1,
         transformOrigin: "top left",
