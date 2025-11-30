@@ -249,7 +249,7 @@ $(function () {
 
     // vertical scrolling
     const cardsWrappers = gsap.utils.toArray(".vertical_slider_item");
-    const cards = gsap.utils.toArray(".vertical_slider_content");
+    const cards = gsap.utils.toArray(".vertical_slider_cintent");
 
     cardsWrappers.forEach((wrapper, i) => {
         const card = cards[i];
@@ -267,15 +267,31 @@ $(function () {
             scrollTrigger: {
                 trigger: wrapper,
                 start: "top 0" + (100 + 50 * i),
-                end: "bottom 100",
-                endTrigger: ".vertical_scroll_slider",
+                end: "bottom 850",
+                endTrigger: ".wrapper",
                 scrub: true,
                 pin: wrapper,
                 pinSpacing: false,
+                invalidateOnRefresh: true,
                 id: i + 1
             }
         });
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
