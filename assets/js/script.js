@@ -248,14 +248,14 @@ $(function () {
 
 
     // vertical scrolling
-    const cardsWrappers = gsap.utils.toArray(".vertical_slider_item");
-    const cards = gsap.utils.toArray(".vertical_slider_cintent");
+    const sliderItem = gsap.utils.toArray(".vertical_slider_item");
+    const verSliContent = gsap.utils.toArray(".vertical_slider_cintent");
 
-    cardsWrappers.forEach((wrapper, i) => {
-        const card = cards[i];
+    sliderItem.forEach((wrapper, i) => {
+        const card = verSliContent[i];
         let scale = 1,
             rotation = 0;
-        if (i !== cards.length - 1) {
+        if (i !== verSliContent.length - 1) {
             scale = 0.9 + 0.025 * i;
             rotation = -10;
         }
@@ -282,9 +282,70 @@ $(function () {
 
 
 
+    // image scroll animation 01
+    const scrollImage = gsap.utils.toArray(".scroll_img");
+
+    timeline.from(scrollImage, {
+        scaleX: 0.3,
+        opacity: 0,
+        transformOrigin: "top left",
+        ease: "none",
+    }).to(scrollImage, {
+        scaleX: 1,
+        opacity: 1,
+        transformOrigin: "top left",
+        scrollTrigger: {
+            trigger: ".image_scroll_effect",
+            pin: true,
+            scrub: 1,
+            start: "top 200",
+            smooth: 1,
+        }
+    });
 
 
 
+
+
+    // image random animation
+    const randomY = gsap.utils.random([window.innerHeight, -window.innerHeight, 0], true)
+    const randomX = gsap.utils.random([window.innerWidth, -window.innerWidth], true)
+
+    const randomTrigger = document.querySelector(".img_random_animi");
+    const randomImg = document.querySelector(".img_random_animi_item");
+
+    const randomTL = gsap.timeline({
+        scrollTrigger: {
+            trigger: randomTrigger,
+            start: "top 120",
+            end: `${window.innerHeight * 4} top`,
+            scrub: true,
+            pin: true,
+        }
+    });
+
+    randomTL.from(".random_img:nth-child(2)", {
+        y: () => randomY(),
+        x: () => randomX(),
+        duration: 1,
+    });
+    randomTL.from(".random_img:nth-child(3)", {
+        y: () => randomY(),
+        x: () => randomX(),
+        duration: 1,
+    });
+
+    randomTL.from(".random_img:nth-child(4)", {
+        y: () => randomY(),
+        x: () => randomX(),
+        duration: 1,
+    });
+
+    randomTL.from(".random_img:nth-child(5)", {
+        y: () => randomY(),
+        x: () => randomX(),
+        duration: 1,
+    });
 
 
 
