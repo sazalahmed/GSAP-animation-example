@@ -175,6 +175,7 @@ button {
 /* =================================
     GLOBAL CSS END
 ================================= */
+
 /* menu start */
 .main_menu {
     padding: 0;
@@ -394,6 +395,7 @@ button {
 
 /* menu end */
 
+
 /* banne start */
 .wsus__banner {
     background-position: center !important;
@@ -440,12 +442,30 @@ button {
     overflow: hidden;
 }
 
-
-
-
 /* banne end */
 
 
+
+
+/* text animation start */
+.split_text_animi {
+    opacity: 0;
+}
+
+.split,
+.split span {
+    color: var(--colorBlack);
+    font-size: 38px;
+    font-weight: 600;
+    text-align: center;
+    perspective: 500px;
+}
+
+.split span {
+    color: var(--colorSecondary);
+}
+
+/* text animation end */
 
 
 
@@ -469,6 +489,8 @@ button {
 }
 
 /* horizontal scrolling end */
+
+
 
 
 /* 3D image zoom start */
@@ -501,6 +523,35 @@ button {
 /* 3D image zoom end */
 
 
+
+/* parallax content start */
+.parallax .parallax_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    gap: 25px;
+}
+
+.parallax .parallax_text h2,
+.parallax .parallax_text h2 span {
+    font-size: 38px;
+    font-weight: 600;
+}
+
+.parallax_img {
+    height: 500px;
+    overflow: hidden;
+}
+
+.parallax_img img {
+    height: auto !important;
+}
+
+/* parallax content end */
+
+
 /* single image zoom start */
 .single_zoom_main_img {
     display: flex;
@@ -516,6 +567,17 @@ button {
 }
 
 /* single image zoom end */
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -546,6 +608,22 @@ button {
 
 
 
+.scroll_btn {
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    border-radius: 50%;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 600;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 99;
+    background: var(--colorSecondary);
+    color: var(--colorBlack);
+}
 
 footer {
     background: var(--colorPrimary);
@@ -553,7 +631,6 @@ footer {
     justify-content: center;
     contain: content;
     padding: 250px 0px;
-    margin-top: 100px;
 }
 
 footer h1 {
@@ -620,26 +697,8 @@ footer h1 {
 
 
 
-
-
-
-
-
-
-
-
-
-/* scroll animation start */
-.img_random_animi {
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* min-height: 100svh; */
-}
-
+/* image random animation start */
 .img_random_animi_area {
-    /* padding: 0; */
-    /* margin: 0; */
     display: grid;
     width: 100%;
 }
@@ -648,16 +707,52 @@ footer h1 {
     grid-area: 1/1/2/2;
 }
 
-.img_random_animi_area li {
-    /* list-style: none; */
-}
-
 .random_img {
     height: 650px;
-    /* min-height: auto; */
-    /* padding: 30px; */
 }
 
+/* image random animation end */
 
 
-/* scroll animation end */
+
+
+
+
+/* category start */
+.category_img img {
+    position: absolute;
+    width: auto !important;
+    height: 40vh !important;
+    opacity: 0;
+    z-index: -1;
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+}
+
+.category_list {
+    height: 650px;
+    display: grid;
+    place-content: center;
+    max-width: 70vw;
+    margin: 0 auto;
+}
+
+.category_list .category_item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    justify-content: center;
+}
+
+.category_list .category_item p {
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 42px;
+    color: var(--colorSecondary);
+    mix-blend-mode: color-burn;
+}
+
+/* category end */

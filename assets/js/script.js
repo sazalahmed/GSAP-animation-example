@@ -33,7 +33,6 @@ $(function () {
 
 
 
-
     //========== GSAP code here ==========
     document.addEventListener("DOMContentLoaded", () => {
         gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText)
@@ -41,11 +40,22 @@ $(function () {
 
     const timeline = gsap.timeline();
 
-
+    // smooth scrolling
     const smoother = ScrollSmoother.create({
         smooth: 2,
         effects: true
     });
+
+    // scroll to top
+    // window.scrollTo({
+    //     top: 0,
+    //     behavior: 'instant'
+    // })
+
+    const button = document.querySelector(".scroll_btn")
+
+    button.addEventListener("click", () => smoother.scrollTo(button, true, "top 100px"));
+
 
     // menu animation
     gsap.from(".main_menu .navbar-nav .nav-item", {
@@ -154,6 +164,21 @@ $(function () {
         effects: true,
         smoothTouch: 0.2,
 
+    });
+
+
+
+    // text animation
+    document.fonts.ready.then(() => {
+        gsap.set(".split_text", { opacity: 1 });
+        let split = SplitText.create(".split", { type: "words", aria: "hidden" });
+
+        gsap.from(split.words, {
+            opacity: 0,
+            duration: 3,
+            ease: "sine.out",
+            stagger: 0.1,
+        });
     });
 
 
@@ -346,6 +371,37 @@ $(function () {
         x: () => randomX(),
         duration: 1,
     });
+
+
+
+
+    // category
+    const categoryList = document.querySelector('.category_list');
+    categoryList.addEventListener('mousemove', e => {
+        gsap.to('.category_img img', {
+            x: e.x,
+            y: e.y,
+            xPercent: -50,
+            yPercent: -50,
+            stagger: .05
+        })
+    });
+    gsap.utils.toArray('.category_item p')
+        .forEach(category => {
+            let { label } = category.dataset
+            category.addEventListener('mouseenter', () => {
+                gsap.to(`img[data-image=${label}]`, { opacity: 1, scale: 1 })
+                gsap.set(`img[data-image=${label}]`, { zIndex: 1 })
+                gsap.set(`p[data-label=${label}]`, { zIndex: 2 })
+            })
+            category.addEventListener('mouseleave', () => {
+                gsap.to(`img[data-image=${label}]`, { opacity: 0, zIndex: -1, scale: .80 })
+                gsap.set(`p[data-label=${label}]`, { zIndex: 0 })
+            })
+        });
+
+
+
 
 
 
