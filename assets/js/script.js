@@ -46,16 +46,6 @@ $(function () {
         effects: true
     });
 
-    // scroll to top
-    // window.scrollTo({
-    //     top: 0,
-    //     behavior: 'instant'
-    // })
-
-    const button = document.querySelector(".scroll_btn")
-
-    button.addEventListener("click", () => smoother.scrollTo(button, true, "top 100px"));
-
 
     // menu animation
     gsap.from(".main_menu .navbar-nav .nav-item", {
