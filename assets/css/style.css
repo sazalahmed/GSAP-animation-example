@@ -494,6 +494,10 @@ button {
 
 
 /* 3D image zoom start */
+.image_zoom {
+    overflow: hidden;
+}
+
 .zoom_content {
     position: relative;
     width: 100%;
@@ -607,23 +611,6 @@ button {
 
 
 
-
-.scroll_btn {
-    width: 65px;
-    height: 65px;
-    line-height: 65px;
-    text-align: center;
-    border-radius: 50%;
-    text-transform: capitalize;
-    font-size: 16px;
-    font-weight: 600;
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    z-index: 99;
-    background: var(--colorSecondary);
-    color: var(--colorBlack);
-}
 
 footer {
     background: var(--colorPrimary);
