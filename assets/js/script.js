@@ -159,17 +159,68 @@ $(function () {
 
 
     // text animation
+
+    // split text
     document.fonts.ready.then(() => {
         gsap.set(".split_text", { opacity: 1 });
         let split = SplitText.create(".split", { type: "words", aria: "hidden" });
 
         gsap.from(split.words, {
             opacity: 0,
-            duration: 3,
+            duration: 1.5,
             ease: "sine.out",
             stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".split_text",
+                scrub: true,
+                start: "top center",
+                smooth: 2,
+            }
         });
     });
+
+    // text highlight
+    let highlight = new SplitText(".highlight", { type: "lines" });
+    let masks;
+    function makeItHappen() {
+        masks = [];
+        highlight.lines.forEach((target) => {
+            let mask = document.createElement("span");
+            mask.className = "mask";
+            target.append(mask);
+            masks.push(mask);
+            gsap.to(mask, {
+                scaleX: 0,
+                transformOrigin: "right center",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: target,
+                    scrub: true,
+                    start: "top center",
+                    end: "bottom center"
+                }
+            });
+        });
+    };
+    makeItHappen();
+
+
+
+    // portfolio animation
+    const portfolioTitle = document.querySelector(".portfolio_heading h2");
+
+    gsap.to(portfolioTitle, {
+        x: 350,
+        // y: "100%",
+        scale: 1.3,
+        scrollTrigger: {
+            trigger: ".portfolio",
+            scrub: true,
+            start: "top 550",
+            end: "top 200",
+            smooth: 2,
+        }
+    })
 
 
 
