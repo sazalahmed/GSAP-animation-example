@@ -211,7 +211,6 @@ $(function () {
 
     gsap.to(portfolioTitle, {
         x: 350,
-        // y: "100%",
         scale: 1.3,
         scrollTrigger: {
             trigger: ".portfolio",
