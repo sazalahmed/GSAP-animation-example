@@ -23,7 +23,51 @@ $(function () {
 
 
 
-
+    // Cursor js
+    if ($(".mouseCursor").length > 0) {
+        function itCursor() {
+            var myCursor = jQuery(".mouseCursor");
+            if (myCursor.length) {
+                if ($("body")) {
+                    const e = document.querySelector(".cursor-inner"),
+                        t = document.querySelector(".cursor-outer");
+                    let n,
+                        i = 0,
+                        o = !1;
+                    (window.onmousemove = function (s) {
+                        o ||
+                            (t.style.transform =
+                                "translate(" + s.clientX + "px, " + s.clientY + "px)"),
+                            (e.style.transform =
+                                "translate(" + s.clientX + "px, " + s.clientY + "px)"),
+                            (n = s.clientY),
+                            (i = s.clientX);
+                    }),
+                        $("body").on(
+                            "mouseenter",
+                            "button, a, .cursor-pointer",
+                            function () {
+                                e.classList.add("cursor-hover"),
+                                    t.classList.add("cursor-hover");
+                            }
+                        ),
+                        $("body").on(
+                            "mouseleave",
+                            "button, a, .cursor-pointer",
+                            function () {
+                                ($(this).is("a", "button") &&
+                                    $(this).closest(".cursor-pointer").length) ||
+                                    (e.classList.remove("cursor-hover"),
+                                        t.classList.remove("cursor-hover"));
+                            }
+                        ),
+                        (e.style.visibility = "visible"),
+                        (t.style.visibility = "visible");
+                }
+            }
+        }
+        itCursor();
+    };
 
 
 
@@ -159,7 +203,6 @@ $(function () {
 
 
     // text animation
-
     // split text
     document.fonts.ready.then(() => {
         gsap.set(".split_text", { opacity: 1 });
@@ -207,19 +250,44 @@ $(function () {
 
 
     // portfolio animation
-    const portfolioTitle = document.querySelector(".portfolio_heading h2");
+    const portfolioArea = document.querySelector(".portfolio");
+    const portfolioText = document.querySelector(".portfolio_heading h2");
 
-    gsap.to(portfolioTitle, {
-        x: 350,
-        scale: 1.3,
-        scrollTrigger: {
-            trigger: ".portfolio",
-            scrub: true,
-            start: "top 550",
-            end: "top 200",
-            smooth: 2,
-        }
-    })
+    if (portfolioArea && portfolioText) {
+        gsap.set(portfolioText, { x: "0%", opacity: 1, scale: 1 });
+
+        let portfolioline = gsap.timeline({
+            scrollTrigger: {
+                trigger: portfolioArea,
+                start: "top center-=200",
+                pin: portfolioText,
+                end: "bottom bottom+=10",
+                markers: false,
+                pinSpacing: false,
+                scrub: 1,
+            },
+        });
+
+        portfolioline.to(portfolioText, {
+            x: "50%",
+            duration: 1.2,
+            ease: "power3.out",
+        });
+
+        portfolioline.to(portfolioText, { scale: 3, duration: 1 });
+        portfolioline.to(portfolioText, { scale: 3, duration: 1 });
+        portfolioline.to(portfolioText, { scale: 1, duration: 1 }, "+=2");
+
+        gsap.to(portfolioText, {
+            scrollTrigger: {
+                trigger: portfolioArea,
+                start: "top center-=100",
+                end: "bottom bottom+=10",
+                scrub: 1,
+            },
+            opacity: 0,
+        });
+    }
 
 
 
@@ -447,10 +515,30 @@ $(function () {
 
 
 
-
+    gsap.from(".draw", {
+        drawSVG: "0%",
+        ease: "expo.out",
+        scrollTrigger: {
+            trigger: ".clump_trigger_heading",
+            start: "clamp(top center)",
+            scrub: true,
+            pin: ".pin",
+            pinSpacing: false,
+            // markers: true
+        }
+    });
 
 
 
 
 
 });
+
+
+
+
+
+
+
+
+

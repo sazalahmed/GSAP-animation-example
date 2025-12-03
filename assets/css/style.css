@@ -172,6 +172,77 @@ button {
     border-radius: 50px;
 }
 
+/* cursor start */
+.cursor-outer {
+    margin-inline-start: -12px;
+    -webkit-margin-start: -12px;
+    margin-top: -12px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--colorSecondary);
+    background-color: var(--colorSecondary);
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    z-index: 10000000;
+    opacity: 0.34;
+    transition: all 0.4s ease-out 0s;
+    -webkit-transition: all 0.4s ease-out 0s;
+    -moz-transition: all 0.4s ease-out 0s;
+    -ms-transition: all 0.4s ease-out 0s;
+    -o-transition: all 0.4s ease-out 0s;
+}
+
+.cursor-outer.cursor-hover {
+    opacity: 0.14;
+}
+
+.cursor-outer.cursor-big {
+    opacity: 0;
+}
+
+.mouseCursor {
+    position: fixed;
+    top: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    bottom: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    visibility: hidden;
+    text-align: center;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+}
+
+.mouseCursor.cursor-big {
+    width: 20px;
+    height: 20px;
+    margin-inline-start: -12px;
+    -webkit-margin-start: -12px;
+    margin-top: -12px;
+}
+
+.cursor-inner {
+    margin-inline-start: -3px;
+    -webkit-margin-start: -3px;
+    margin-top: -3px;
+    width: 10px;
+    height: 10px;
+    z-index: 10000001;
+    background-color: var(--colorSecondary);
+    opacity: 1;
+    transition: all 0.24s ease-out 0s;
+    -webkit-transition: all 0.24s ease-out 0s;
+    -moz-transition: all 0.24s ease-out 0s;
+    -ms-transition: all 0.24s ease-out 0s;
+    -o-transition: all 0.24s ease-out 0s;
+}
+
+/* cursor end */
+
 /* =================================
     GLOBAL CSS END
 ================================= */
@@ -500,11 +571,8 @@ button {
     background: #f7f7f7;
 }
 
-.portfolio_heading {}
-
 .portfolio_heading h4 {
     text-transform: uppercase;
-    /* font-family: var(--cursiveFont); */
     font-size: 18px;
     font-weight: 600;
 }
@@ -517,8 +585,6 @@ button {
     padding-left: 50px;
 }
 
-.portfolio_heading p {}
-
 .portfolio_item {
     margin-right: 50px;
 }
@@ -529,10 +595,6 @@ button {
     margin-bottom: 25px;
     border: 1px solid #ddd;
 }
-
-.portfolio_item h2 {}
-
-.portfolio_item p {}
 
 .portfolio_area .col-lg-6 {
     padding: 0;
@@ -842,3 +904,57 @@ footer h1 {
 }
 
 /* category end */
+
+
+
+/* crumb triggrt start */
+.clump_trigger {
+    background: #eee;
+}
+
+.clump_trigger h1,
+.clump_trigger h1 span {
+    font-size: 100px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--colorSecondary);
+}
+
+.clump_trigger .images {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    z-index: -1;
+}
+
+.clump_trigger .images img {
+    height: 700px !important;
+}
+
+.clump_trigger_heading {
+    position: relative;
+    z-index: 2;
+    mix-blend-mode: difference;
+    perspective: 1000px;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+}
+
+.clump_trigger_heading .clamp {
+    position: relative;
+    z-index: -1;
+}
+
+.clump_trigger_heading .clamp svg {
+    position: absolute;
+    width: 112%;
+    top: 50%;
+    left: -6%;
+    transform: translateY(-50%) rotate(2deg);
+    -webkit-transform: translateY(-50%) rotate(2deg);
+    -moz-transform: translateY(-50%) rotate(2deg);
+    -ms-transform: translateY(-50%) rotate(2deg);
+    -o-transform: translateY(-50%) rotate(2deg);
+}
+
+/* crumb triggrt end */
