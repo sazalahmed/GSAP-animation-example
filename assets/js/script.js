@@ -290,23 +290,7 @@ $(function () {
     }
 
 
-
-    // horizontal scrolling
-    const slideItem = gsap.utils.toArray(".slider_item");
-    gsap.to(slideItem, {
-        xPercent: -100 * (slideItem.length - 1),
-        // duration: 2.5,
-        // ease: "power1.out",
-        smooth: 2,
-        scrollTrigger: {
-            trigger: ".horizontal_slider",
-            pin: true,
-            scrub: 1,
-            start: "top 200",
-            smooth: 2,
-        }
-    });
-
+    // default card scrollin
 
 
     // 3D image zoom
